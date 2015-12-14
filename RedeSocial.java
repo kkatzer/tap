@@ -73,6 +73,7 @@ public class RedeSocial {
                 user.attachFeed(p);
             }
         }
+    }
     
     public class Relation {
         public String type;
