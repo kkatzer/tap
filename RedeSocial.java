@@ -9,6 +9,70 @@ import java.util.ArrayList;
  * @author Kevin
  */
 public class RedeSocial {
+
+    public class Subject {
+    
+        private final List<Observer> observers = new ArrayList<>();
+        private User user;
+        
+        public Subject(User user) {
+            this.user = user;
+        }
+
+        public User getUser() {
+            return user;
+        }
+        
+        public List<Observer> getObservers() {
+            return observers;
+        }
+
+        public void attach(Observer observer){
+            observers.add(observer);        
+        }
+
+        public void post(Post p){
+            for (Observer observer : observers) {
+                observer.update(p);
+            }
+            user.attachFeed(p);
+        }   
+    }
+
+    public class Observer {
+        protected Subject subject;
+        protected User user;
+        public Observer(Subject s, User u){
+            Boolean hasObserver = false;
+            List<Observer> observers = s.getObservers();
+            for (Observer observer : observers) {
+                if (observer.user == u) {
+                    hasObserver = true;
+                }
+            }
+            if (!hasObserver){
+                this.subject = s;
+                this.subject.attach(this);
+                this.user = u;
+            }
+        }
+        
+        public void dettach() {
+            subject.getObservers().remove(this);
+        }
+
+        public void update(Post p) {
+            if (user.group) {
+                for (Relation membership : user.relations) {
+                    if (membership.relative != user){
+                        membership.relative.attachFeed(p);
+                    }
+                }
+            }
+            else {
+                user.attachFeed(p);
+            }
+        }
     
     public class Relation {
         public String type;
