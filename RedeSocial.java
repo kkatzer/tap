@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package redesocial;
 
 import java.util.Date;
@@ -15,7 +10,7 @@ import java.util.ArrayList;
  */
 public class RedeSocial {
     
-    public static class Relation {
+    public class Relation {
         public String type;
         public Date start;
         public Date end;
@@ -51,7 +46,7 @@ public class RedeSocial {
         public Post post;
     }
 
-    public static class Thought extends Post {
+    public class Thought extends Post {
         public Thought(User u, String t) {
             this.text = t;
             this.post = null;
@@ -59,7 +54,7 @@ public class RedeSocial {
         }
     }
 
-    public static class Comment extends Post {        
+    public class Comment extends Post {        
         public Comment(User u, String t, Thought th) {
             this.text = t;
             this.post = th;
@@ -67,7 +62,7 @@ public class RedeSocial {
         }
     }
 
-    public static class Like extends Post {
+    public class Like extends Post {
         public Like(User u, Post p) {
             this.post = p;
             this.text = null;
@@ -75,7 +70,7 @@ public class RedeSocial {
         }
     }
 
-    public static class Dislike extends Post {
+    public class Dislike extends Post {
         public Dislike(User u, Post p) {
             this.post = p;
             this.text = null;
@@ -83,7 +78,7 @@ public class RedeSocial {
         }
     }
 
-    public static class User {
+    public class User {
         public String name;
         public String login;
         public Boolean group; //Person if false
@@ -93,13 +88,13 @@ public class RedeSocial {
         public Subject subject;
         
         public User(String n, String l, Boolean g) {
-            this.name = n;
-            this.login = l;
-            this.group = g;
-            this.created_at = new Date();
-            this.feed = new ArrayList<>();
-            this.relations = new ArrayList<>();
-            this.subject = new Subject(this);
+            name = n;
+            login = l;
+            group = g;
+            created_at = new Date();
+            feed = new ArrayList<>();
+            relations = new ArrayList<>();
+            subject = new Subject(this);
         }
         
         public void attachFeed(Post p) {
@@ -124,10 +119,20 @@ public class RedeSocial {
         }
     }
 
+    public static void main (String[] args) {
+        try {
+            RedeSocial obj = new RedeSocial();
+            obj.run (args);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public void run(String[] args) {
         User g1 = new User("Mulheres", "women", true);
         User g2 = new User("Mezzo-sopranos", "mezzo", true);
         

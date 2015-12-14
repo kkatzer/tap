@@ -1,3 +1,3 @@
 all:
-	        javac -J-Xmx2G redeSocial.java
-	        java -Xmx2G redeSocial
+	        javac -J-Xmx2G *.java
+	        java -Xmx2G RedeSocial
