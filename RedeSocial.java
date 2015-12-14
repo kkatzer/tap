@@ -184,20 +184,20 @@ public class RedeSocial {
         }
     }
 
-    public static void main (String[] args) {
-        try {
-            RedeSocial obj = new RedeSocial();
-            obj.run (args);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    // public static void main (String[] args) {
+    //     try {
+    //         RedeSocial obj = new RedeSocial();
+    //         obj.run (args);
+    //     }
+    //     catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     /**
      * @param args the command line arguments
      */
-    public void run(String[] args) {
+    public static void main(String[] args) {
         User g1 = new User("Mulheres", "women", true);
         User g2 = new User("Mezzo-sopranos", "mezzo", true);
         
