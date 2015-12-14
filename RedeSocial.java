@@ -206,19 +206,19 @@ public class RedeSocial {
         User p3 = new User("Igor", "zarnis", false);
         
         Relation r11 = new Relation("Friend", 3, p1, p2);
-//        Relation r12 = new Relation("Friend", 5, p1, p3);
-//        Relation r13 = new Relation("In a Relationship", 5, p1, p3);
-//        Relation r14 = new Relation("Member", 3, p1, g1);
-//        Relation g41 = new Relation("Group", 3, g1, p1);
-//        
-//        Relation r21 = new Relation("Friend", 4, p2, p3);
-//        Relation r22 = new Relation("Member", 3, p2, g1);
-//        Relation g22 = new Relation("Group", 3, g1, p2);
-//        Relation r23 = new Relation("Member", 3, p2, g2);
-//        Relation g32 = new Relation("Group", 3, g2, p2);
-//        
-//        Relation r31 = new Relation("Family", 2, p3, p1);
-//        Relation r32 = new Relation("Acquaintance", 1, p3, p2);
+        Relation r12 = new Relation("Friend", 5, p1, p3);
+        Relation r13 = new Relation("In a Relationship", 5, p1, p3);
+        Relation r14 = new Relation("Member", 3, p1, g1);
+        Relation g41 = new Relation("Group", 3, g1, p1);
+        
+        Relation r21 = new Relation("Friend", 4, p2, p3);
+        Relation r22 = new Relation("Member", 3, p2, g1);
+        Relation g22 = new Relation("Group", 3, g1, p2);
+        Relation r23 = new Relation("Member", 3, p2, g2);
+        Relation g32 = new Relation("Group", 3, g2, p2);
+        
+        Relation r31 = new Relation("Family", 2, p3, p1);
+        Relation r32 = new Relation("Acquaintance", 1, p3, p2);
         
         Thought t11 = new Thought(p1, "Oi, Janete!");
         Comment c21 = new Comment(p2, "Oi!!!", t11);
@@ -226,8 +226,8 @@ public class RedeSocial {
         Thought t23 = new Thought(p2, "Indo pra casa");
         Thought t12 = new Thought(g1, "Artigo");
         Dislike l23 = new Dislike(p2, t12);
-//        r22.endRelation();
-//        g22.endRelation();
+        r22.endRelation();
+        g22.endRelation();
         
         p3.printFeed();
         
